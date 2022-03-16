@@ -21,8 +21,15 @@ const OpenSeaViewer = (props) => {
     setWidth(window.innerWidth);
     setHeight(window.innerHeight)
     
+    const resize = () => {
+      setHeight(window.innerHeight);
+      setWidth(window.innerWidth)
+    }
+    
+    window.addEventListener('resize', resize)
 
   }, [])
+  
 
 
   return (
