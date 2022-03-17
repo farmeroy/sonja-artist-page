@@ -1,0 +1,55 @@
+.button {
+  height: 64px;
+  width: 64px;
+  border-radius: 2rem;
+  background-color: #ffffff66;
+  /* filter: blur(9px); */
+  border: none;
+  margin: 1rem;
+  /* filter: drop-shadow(20px 29px 20px white); */
+  /* backdrop-filter: blur(4px); */
+  /* animation: fadeIn 3s; */
+  animation: pulse 4s ease-in-out infinite;
+  z-index: 10;
+}
+
+
+
+/* slightly transparent fallback */
+.button {
+  background-color: rgba(255, 255, 255, .9);
+}
+
+/* if backdrop support: very transparent and blurred */
+@supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
+  .button {
+    background-color: rgba(255, 255, 255, .4);
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+  }
+}
+
+.button:hover {
+  cursor: pointer;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes pulse {
+  0% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1.07);
+  }
+  80% {
+    transform: scale(1, 1);
+  }
+}
+
