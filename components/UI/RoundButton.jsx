@@ -4,7 +4,7 @@ import * as styles from './RoundButton.module.css';
 const RoundButton = (props) => {
 
   return (
-    <button className={`${styles.button} ${horizontalDisplay}`}>
+    <button className={`${styles.button} `} onClick={props.onClick}>
     </button>
   )
 };
