@@ -5,8 +5,8 @@ console.log('imported the drageon')
 
 const OpenSeaViewer = (props) => {
   const image = props.image; 
-  const [width, setWidth] = useState('800px');
-  const [height, setHeight] = useState('400px')
+  const [width, setWidth] = useState('100vw');
+  const [height, setHeight] = useState('100vh')
 
   useEffect(() => {
     const viewer = OpenSeaDragon({
@@ -17,6 +17,25 @@ const OpenSeaViewer = (props) => {
       visibilityRatio: 1,
       constrainDuringPan: true,
     })
+
+    // const mouseTracker = new OpenSeaDragon.MouseTracker({
+    //   element: viewer.canvas,
+    //   moveHandler: function(event) {
+    //     if ( event.position.x > 0 ) {
+    //       let scrollX = 10
+    //     } else {
+    //       let scrollX = -10
+    //     }
+
+    //     if (event.position.y > 0 ) {
+    //       let scrollY =1
+    //     } else {
+    //       let scrollY = -1
+    //     }
+    //     viewer.viewport.panBy(1, 2)
+    //   }
+    // }
+    // )
     
     setWidth(window.innerWidth);
     setHeight(window.innerHeight)
@@ -27,6 +46,9 @@ const OpenSeaViewer = (props) => {
     }
     
     window.addEventListener('resize', resize)
+
+
+
 
   }, [])
   
