@@ -1,0 +1,38 @@
+.textarea {
+  height: 90%;
+  border: none;
+  resize: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.50);
+}
+
+.textarea:focus {
+  border: none;
+}
+
+.form {
+  display: flex;
+  height: 400px;
+  flex-direction: column;
+  padding: 2rem;
+  font-weight: bold;
+}
+
+.form label {
+  font-size: 3rem;
+  justify-self: left;
+}
+
+.btn {
+  color: rgba(0, 100, 200, .8); 
+  font-size: 2rem;
+  background-color: white;
+  border-radius: 1rem;
+  padding: 1rem;
+  width: 8rem;
+  border: none;
+  margin: 1rem auto;
+}
+
+.btn:hover {
+  cursor: pointer;
+}
