@@ -8,6 +8,7 @@ const OpenSeaViewer = (props) => {
   const [width, setWidth] = useState('100vw');
   const [height, setHeight] = useState('100vh')
 
+  // All references to 'window' must be introducded in useEffect
   useEffect(() => {
     const viewer = OpenSeaDragon({
     id: "openseadragon1",
@@ -21,18 +22,10 @@ const OpenSeaViewer = (props) => {
     // const mouseTracker = new OpenSeaDragon.MouseTracker({
     //   element: viewer.canvas,
     //   moveHandler: function(event) {
-    //     if ( event.position.x > 0 ) {
-    //       let scrollX = 10
-    //     } else {
-    //       let scrollX = -10
-    //     }
-
-    //     if (event.position.y > 0 ) {
-    //       let scrollY =1
-    //     } else {
-    //       let scrollY = -1
-    //     }
-    //     viewer.viewport.panBy(1, 2)
+    //     const v = viewer.viewport;
+    //     const mouse = event.position;
+    //     console.log(mouse)
+    //     // v.panTo(v.pointFromPixel(result))
     //   }
     // }
     // )
@@ -46,9 +39,6 @@ const OpenSeaViewer = (props) => {
     }
     
     window.addEventListener('resize', resize)
-
-
-
 
   }, [])
   
