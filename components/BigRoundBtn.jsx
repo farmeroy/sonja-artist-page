@@ -6,7 +6,7 @@ const BigRoundBtn = (props) => {
   const horizontalDisplay = props.left ? styles.left : styles.right;
 
   return (
-    <button className={`${styles.bigBtn} ${horizontalDisplay}`}>
+    <button onClick={props.onClick} id={props.btnId} className={`${styles.bigBtn} ${horizontalDisplay}`}>
       {props.children}
     </button>
   );
