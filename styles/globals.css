@@ -14,3 +14,13 @@ a {
 * {
   box-sizing: border-box;
 }
+
+#prevBtn {
+  position: absolute !important;
+  left: 10px !important;
+}
+
+#nextBtn { 
+  position: absolute !important;
+  right: 10px !important;
+}
