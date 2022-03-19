@@ -19,12 +19,19 @@ export default function Home() {
   const [showContactForm, setShowContactForm] = useState(false);
   const [showImageThumbnail, setShowImageThumbail] = useState(false);
 
+  const [drawing, setDrawing] = useState(0);
+  const drawings = ['', '_green'];
+
   const showContactFormHandler = () => {
     setShowContactForm(!showContactForm);
   }
 
   const showImageThumbnailHandler = () => {
     setShowImageThumbail(!showImageThumbnail);
+  }
+
+  const drawingChangeHandler = () => {
+    drawing === 0 ? setDrawing(1) : setDrawing(0)
   }
 
   return (
@@ -40,17 +47,17 @@ export default function Home() {
       </Head>
       {showContactForm && <ContactForm onClick={showContactFormHandler}/>} 
       {showImageThumbnail && <ImageThumbnail onClick={showImageThumbnailHandler} />}
-      <main className={styles.main}>
+      <main id="main" className={styles.main}>
 
         <Header>
           <RoundButton id="contact" onClick={showContactFormHandler}>i</RoundButton>
           <RoundButton onClick={showImageThumbnailHandler} />
         </Header>
 
-        <BigRoundBtn right />
-        <BigRoundBtn left /> 
+        <BigRoundBtn btnId="nextBtn" right />
+        <BigRoundBtn btnId="prevBtn" left /> 
 
-        <OpenSeaViewer className={styles.openseadragon} />
+        <OpenSeaViewer className={styles.openseadragon} drawing={drawings[drawing]}/>
 
       </main>
 
