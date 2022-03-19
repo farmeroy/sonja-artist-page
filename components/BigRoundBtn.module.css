@@ -21,12 +21,3 @@
   opacity: 1;
 }
 
-.left {
-  position: absolute;
-  left: 10px;
-}
-
-.right { 
-  position: absolute;
-  right: 10px;
-}
