@@ -17,18 +17,23 @@ const OpenSeaViewer = (props) => {
       showNavigationControl: false,
       visibilityRatio: 1,
       constrainDuringPan: true,
+      defaultZoomLevel: 10,
+      visibilityRatio: 1,
+      springStiffness: 1,
+      animationTime: 20,
     })
 
-    // const mouseTracker = new OpenSeaDragon.MouseTracker({
-    //   element: viewer.canvas,
-    //   moveHandler: function(event) {
-    //     const v = viewer.viewport;
-    //     const mouse = event.position;
-    //     console.log(mouse)
-    //     // v.panTo(v.pointFromPixel(result))
-    //   }
-    // }
-    // )
+    const mouseTracker = new OpenSeaDragon.MouseTracker({
+      element: viewer.canvas,
+      moveHandler: function(event) {
+        const v = viewer.viewport;
+        const mouse = event.position;
+        const panDelta = v.pointFromPixel(mouse, true);
+        v.panTo(panDelta);
+      }
+    }
+    )
+    
     
     setWidth(window.innerWidth);
     setHeight(window.innerHeight)
