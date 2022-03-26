@@ -22,12 +22,15 @@ export default function Home() {
   const [drawing, setDrawing] = useState(0);
   const drawings = ['', '_green'];
 
+  const [allowNavigator, setAllowNavigator] = useState(false);
+
   const showContactFormHandler = () => {
     setShowContactForm(!showContactForm);
   }
 
   const showImageThumbnailHandler = () => {
     setShowImageThumbail(!showImageThumbnail);
+    setAllowNavigator(!allowNavigator);
   }
 
   const drawingChangeHandler = () => {
@@ -57,7 +60,7 @@ export default function Home() {
         <BigRoundBtn btnId="nextBtn" right />
         <BigRoundBtn btnId="prevBtn" left /> 
 
-        <OpenSeaViewer className={styles.openseadragon} drawing={drawings[drawing]}/>
+        <OpenSeaViewer className={styles.openseadragon} navigator={allowNavigator}/>
 
       </main>
 
