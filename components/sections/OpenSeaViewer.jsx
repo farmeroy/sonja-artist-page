@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
 import OpenSeaDragon from "openseadragon";
-import BigRoundBtn from '../BigRoundBtn'
+import styles from './OpenSeaViewer.module.css';
 
 const OpenSeaViewer = (props) => {
-  const image = props.image;
+  const allowNavigator = props.navigator;
   const [width, setWidth] = useState(0);
   const [height, setHeight] = useState(0);
 
 
-  // All references to 'window' must be introducded in useEffect
+
+  // All references to 'window' must be introduced in useEffect
   useEffect(() => {
     
     setWidth(window.innerWidth);
@@ -19,20 +20,27 @@ const OpenSeaViewer = (props) => {
       tileSources: ['/mydz.dzi', '/mydz_green.dzi'],
       prefixUrl: "/openseadragon-images/",
       showNavigationControl: false,
-      visibilityRatio: 1,
+      visibilityRatio: .6,
       constrainDuringPan: true,
+      minPixelRatio: 1,
       defaultZoomLevel: 5,
-      visibilityRatio: 1,
-      springStiffness: 1,
+      // springStiffness: 1,
       animationTime: 20,
-      previousButton: '1',
       previousButton: 'prevBtn',
       nextButton: 'nextBtn',
+      iOSDevice: true,
       navPrevNextWrap: true,
       sequenceMode: true,
       initialPage: 1,
-      preserveViewport: true,
+      preserveViewport: false,
       showSequenceControl: true,
+      sequenceControlAnchor: false,
+      showNavigator: allowNavigator,
+      navigatorWidth: '100%',
+      navigatorHeight: '100%',
+      navigatorId: 'navigator',
+      showReferenceStrip: true,
+      referenceStripElement: null,
     });
 
       const mouseTracker = new OpenSeaDragon.MouseTracker({
@@ -42,6 +50,8 @@ const OpenSeaViewer = (props) => {
           const mouse = event.position;
           const panDelta = v.pointFromPixel(mouse, true);
           v.panTo(panDelta);
+          // make sure the image stays in the screen
+          v.ensureVisible();
         },
       });
 
@@ -52,10 +62,10 @@ const OpenSeaViewer = (props) => {
     };
 
     window.addEventListener("resize", resize);
-  }, [props.drawing]);
+  }, [allowNavigator]);
 
   return (
-    <div id="openseadragon1" style={{ width: width, height: height }}>
+    <div id="openseadragon1" className={styles.openseadragon} style={{ width: width, height: height }}>
 
     </div>
   );
