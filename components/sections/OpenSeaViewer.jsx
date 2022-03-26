@@ -36,7 +36,6 @@ const OpenSeaViewer = (props) => {
       showSequenceControl: true,
       sequenceControlAnchor: false,
       showNavigator: allowNavigator,
-      navigatorWidth: '100%',
       navigatorHeight: '100%',
       navigatorId: 'navigator',
       showReferenceStrip: true,
