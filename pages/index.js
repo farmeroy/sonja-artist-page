@@ -49,7 +49,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       {showContactForm && <ContactForm onClick={showContactFormHandler}/>} 
-      {showImageThumbnail && <ImageThumbnail onClick={showImageThumbnailHandler} />}
+      {/* {showImageThumbnail && <ImageThumbnail onClick={showImageThumbnailHandler} />} */}
+      <div className={showImageThumbnail ? styles.showNav : styles.hideNav} onClick={showImageThumbnailHandler}>
+      <ImageThumbnail />
+    </div>
       <main id="main" className={styles.main}>
 
         <Header>
@@ -61,6 +64,7 @@ export default function Home() {
         <BigRoundBtn btnId="prevBtn" left /> 
 
         <OpenSeaViewer className={styles.openseadragon} navigator={allowNavigator}/>
+        <div className={styles.footer}><h1>Sonja Offen</h1></div>
 
       </main>
 
