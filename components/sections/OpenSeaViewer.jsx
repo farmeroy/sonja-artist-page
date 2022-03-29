@@ -3,7 +3,7 @@ import OpenSeaDragon from "openseadragon";
 import styles from './OpenSeaViewer.module.css';
 
 const OpenSeaViewer = (props) => {
-  const allowNavigator = props.navigator;
+  // const allowNavigator = props.navigator;
   const [width, setWidth] = useState(0);
   const [height, setHeight] = useState(0);
 
@@ -20,12 +20,15 @@ const OpenSeaViewer = (props) => {
       tileSources: ['/mydz.dzi', '/mydz_green.dzi'],
       prefixUrl: "/openseadragon-images/",
       showNavigationControl: false,
-      visibilityRatio: .6,
+      visibilityRatio: .9,
       constrainDuringPan: true,
       minPixelRatio: 1,
       defaultZoomLevel: 5,
+      gestureSettingsMouse: {
+       scrollToZoom: true, 
+      },
       // springStiffness: 1,
-      animationTime: 20,
+      // animationTime: 20,
       previousButton: 'prevBtn',
       nextButton: 'nextBtn',
       iOSDevice: true,
@@ -35,27 +38,27 @@ const OpenSeaViewer = (props) => {
       preserveViewport: false,
       showSequenceControl: true,
       sequenceControlAnchor: false,
-      showNavigator: allowNavigator,
+      showNavigator: true,
       navigatorWidth: '100%',
       navigatorHeight: '100%',
       navigatorId: 'navigator',
     });
 
-    if (allowNavigator) {
-      viewer.navigator.goToPage(viewer.currentPage())
-    }
+    // if (allowNavigator) {
+    //   viewer.navigator.goToPage(viewer.currentPage())
+    // }
 
-      const mouseTracker = new OpenSeaDragon.MouseTracker({
-        element: viewer.canvas,
-        moveHandler: function (event) {
-          const v = viewer.viewport;
-          const mouse = event.position;
-          const panDelta = v.pointFromPixel(mouse, true);
-          v.panTo(panDelta);
-          // make sure the image stays in the screen
-          v.ensureVisible();
-        },
-      });
+//       const mouseTracker = new OpenSeaDragon.MouseTracker({
+//         element: viewer.canvas,
+//         moveHandler: function (event) {
+//           const v = viewer.viewport;
+//           const mouse = event.position;
+//           const panDelta = v.pointFromPixel(mouse, true);
+//           v.panTo(panDelta);
+//           // make sure the image stays in the screen
+//           v.ensureVisible();
+//         },
+//       });
 
 
     const resize = () => {
@@ -64,7 +67,7 @@ const OpenSeaViewer = (props) => {
     };
 
     window.addEventListener("resize", resize);
-  }, [allowNavigator]);
+  }, []);
 
   return (
     <div id="openseadragon1" className={styles.openseadragon} style={{ width: width, height: height }}>
