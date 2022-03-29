@@ -3,11 +3,9 @@ import OpenSeaDragon from "openseadragon";
 import styles from './OpenSeaViewer.module.css';
 
 const OpenSeaViewer = (props) => {
-  // const allowNavigator = props.navigator;
+
   const [width, setWidth] = useState(0);
   const [height, setHeight] = useState(0);
-
-
 
   // All references to 'window' must be introduced in useEffect
   useEffect(() => {
@@ -44,9 +42,6 @@ const OpenSeaViewer = (props) => {
       navigatorId: 'navigator',
     });
 
-    // if (allowNavigator) {
-    //   viewer.navigator.goToPage(viewer.currentPage())
-    // }
 
 //       const mouseTracker = new OpenSeaDragon.MouseTracker({
 //         element: viewer.canvas,

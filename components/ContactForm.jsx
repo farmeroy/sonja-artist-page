@@ -3,7 +3,7 @@ import styles from './ContactForm.module.css'
 
 const ContactFom = (props) => {
   return (
-    <ModalElement onClick={props.onClick}>
+    <ModalElement hide={props.onClick}>
       <form className={styles.form}>
         <label htmlFor="message">Message Me!</label>
         <textarea
@@ -13,7 +13,6 @@ const ContactFom = (props) => {
           required
         ></textarea>
         <button className={styles.btn} type="submit">Send</button>
-        {/* <button onClick={props.onClick}>Close</button> */}
       </form>
     </ModalElement>
   );
