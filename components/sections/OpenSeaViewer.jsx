@@ -43,17 +43,17 @@ const OpenSeaViewer = (props) => {
     });
 
 
-//       const mouseTracker = new OpenSeaDragon.MouseTracker({
-//         element: viewer.canvas,
-//         moveHandler: function (event) {
-//           const v = viewer.viewport;
-//           const mouse = event.position;
-//           const panDelta = v.pointFromPixel(mouse, true);
-//           v.panTo(panDelta);
-//           // make sure the image stays in the screen
-//           v.ensureVisible();
-//         },
-//       });
+      // const mouseTracker = new OpenSeaDragon.MouseTracker({
+      //   element: viewer.canvas,
+      //   moveHandler: function (event) {
+      //     const v = viewer.viewport;
+      //     const mouse = event.position;
+      //     const panDelta = v.pointFromPixel(mouse, true);
+      //     v.panTo(panDelta);
+      //     // make sure the image stays in the screen
+      //     v.ensureVisible();
+      //   },
+      // });
 
 
     const resize = () => {
