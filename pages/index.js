@@ -8,6 +8,7 @@ import BigRoundBtn from "../components/BigRoundBtn";
 import ContactForm from "../components/ContactForm";
 import ImageThumbnail from "../components/ImageThumbnail";
 import Title from '../components/Title';
+import Footer from '../components/Footer'
 
 // Because OpenSeadragon needs the Document, we have to import it dynamically
 // and set ssr to false
@@ -66,10 +67,7 @@ export default function Home() {
         <OpenSeaViewer
           className={styles.openseadragon}
         />
-
-        <div className={styles.footer}>
-          <h1>Sonja Offen</h1>
-        </div>
+        <Footer />
       </main>
     </div>
   );
