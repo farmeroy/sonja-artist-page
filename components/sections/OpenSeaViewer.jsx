@@ -38,7 +38,7 @@ const OpenSeaViewer = (props) => {
       sequenceControlAnchor: false,
       showNavigator: true,
       navigatorWidth: '100%',
-      navigatorHeight: '100%',
+      navigatorHeight: '200px',
       navigatorId: 'navigator',
     });
 
