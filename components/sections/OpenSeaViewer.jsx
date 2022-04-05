@@ -18,15 +18,17 @@ const OpenSeaViewer = (props) => {
       tileSources: ['/mydz.dzi', '/mydz_green.dzi'],
       prefixUrl: "/openseadragon-images/",
       showNavigationControl: false,
-      visibilityRatio: .9,
+      visibilityRatio: 1,
       constrainDuringPan: true,
       minPixelRatio: 1,
+      maxZoomLevel: 25,
+      minZoomLevel:1,
       defaultZoomLevel: 5,
       gestureSettingsMouse: {
        scrollToZoom: true, 
       },
-      // springStiffness: 1,
-      // animationTime: 20,
+      springStiffness: .5,
+      animationTime: 5,
       previousButton: 'prevBtn',
       nextButton: 'nextBtn',
       iOSDevice: true,
@@ -40,20 +42,22 @@ const OpenSeaViewer = (props) => {
       navigatorWidth: '100%',
       navigatorHeight: '200px',
       navigatorId: 'navigator',
+      navigatorDisplayRegionColor: 'white',
+      zoomPerClick: 1.2,
     });
 
 
-      // const mouseTracker = new OpenSeaDragon.MouseTracker({
-      //   element: viewer.canvas,
-      //   moveHandler: function (event) {
-      //     const v = viewer.viewport;
-      //     const mouse = event.position;
-      //     const panDelta = v.pointFromPixel(mouse, true);
-      //     v.panTo(panDelta);
-      //     // make sure the image stays in the screen
-      //     v.ensureVisible();
-      //   },
-      // });
+      const mouseTracker = new OpenSeaDragon.MouseTracker({
+        element: viewer.canvas,
+        moveHandler: function (event) {
+          const v = viewer.viewport;
+          const mouse = event.position;
+          const panDelta = v.pointFromPixel(mouse, true);
+          v.panTo(panDelta);
+          // make sure the image stays in the screen
+          v.ensureVisible();
+        },
+      });
 
 
     const resize = () => {
