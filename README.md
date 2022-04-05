@@ -1,4 +1,4 @@
-#Website for Berlin based artist Sonja Offen
+# Website for Berlin based artist Sonja Offen
 This is a very unique website that was designe by the artist and implemented by myself using:
 - NextJS
 - [Open Seadragon](openseadragon.github.io/)
